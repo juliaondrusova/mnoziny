@@ -6,6 +6,7 @@
 #define FALSE 0
 
 
+//funkcia kontroluje ci mnozina obsahuje dany prvok alebo nie
 int obsahuje(int mnozina[], int pocet, int prvok) {
 	
 	int i;
@@ -52,6 +53,21 @@ int zjednotenie (int mnozina1[], int mnozina2[], int mnozina3[], int pocet1, int
 	return pocet;
 }
 
+int prienik (int mnozina1[], int mnozina2[], int mnozina3[], int pocet1, int pocet2) {
+	
+	int i, j;
+	int pocet=0;
+	
+	for (i=0;i<pocet1; i++) {
+		for (j=0;j<pocet2;j++) {
+			if (mnozina1[i]==mnozina2[j]) {
+				mnozina3[pocet]=mnozina1[i];
+				pocet++;
+				break;
+			}
+		}
+	}
+}
 
 
 
