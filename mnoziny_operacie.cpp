@@ -67,6 +67,8 @@ int prienik (int mnozina1[], int mnozina2[], int mnozina3[], int pocet1, int poc
 			}
 		}
 	}
+	
+	return pocet;
 }
 
 
@@ -75,19 +77,26 @@ main () {
 
 	int mnozina1[]= {7,5,8,4,4,1,2};
 	int mnozina2[]= {4,1,2,0,9,7};
-
-	//velkost vystupneho pola, do kt. sa uklada vysledok musi byt rovna minimalna minimalne suctu velkosti poli mnozina1 a mnozina2
-	int mnozina3[13];
-
-	int pocet=zjednotenie (mnozina1,mnozina2,mnozina3,7,6);
-
 	int i;
+	
+	//velkost vystupneho pola, do kt. sa uklada operacia mnozin, musi byt rovna minimalne suctu velkosti oboch mnozin
+	int zjednotena_mnozina[13];
+	int prienikova_mnozina[13];
+	
+	
+	int pocet_z=zjednotenie (mnozina1,mnozina2,zjednotena_mnozina,7,6);
 
-	for (i=0; i<pocet; i++) {
-		printf ("%d ", mnozina3[i]);
+	for (i=0; i<pocet_z; i++) {
+		printf ("%d ", zjednotena_mnozina[i]);
 	}
 
 	printf ("\n");
 
+
+	int pocet_p=prienik (mnozina1,mnozina2,prienikova_mnozina,7,6);
+	
+	for (i=0; i<pocet_p; i++) {
+		printf ("%d ", prienikova_mnozina[i]);
+	}
 
 }
