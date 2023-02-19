@@ -34,7 +34,7 @@ int zjednotenie (int mnozina1[], int mnozina2[], int mnozina3[], int pocet1, int
 		mnozina3[i]=mnozina2[i-pocet1];
 	}
 
-	//kontrola, ci su niekotore prvky zhodne alebo nie
+	//kontrola, ci su niekotore prvky zhodne alebo nie, resp. aby sa v mnozine nenachadzali duplicitne
 	for (i=0; i<pocet1+pocet2; i++) {
 		
 		//ak dany prvok mnozina neobsahuje, tak ho tam prida a zvysi pocet o 1
@@ -60,17 +60,20 @@ int prienik (int mnozina1[], int mnozina2[], int mnozina3[], int pocet1, int poc
 	int pocet_1=0;
 	int mnozina4[pocet1+pocet2];
 	
+	//nacitanie iba tych prvkov, ktore sa vyskytuju v oboch mnozinach
 	for (i=0;i<pocet1; i++) {
 		for (j=0;j<pocet2;j++) {
 			if (mnozina1[i]==mnozina2[j]) {
 				mnozina3[pocet]=mnozina1[i];
 				pocet++;
+				//ak sme dany prvok nasli v oboch mnozinach nasli- opustame cyklus
 				break;
+				
 			}
 		}
 	}
 	
-	//kontrola, ci su niekotore prvky zhodne alebo nie
+	//kontrola, ci su niekotore prvky zhodne alebo nie, resp. aby sa v mnozine nenachadzali duplicitne
 	for (i=0; i<pocet; i++) {
 		
 		//ak dany prvok mnozina neobsahuje, tak ho tam prida a zvysi pocet o 1
@@ -92,6 +95,7 @@ int prienik (int mnozina1[], int mnozina2[], int mnozina3[], int pocet1, int poc
 
 main () {
 
+	//vytvorenie bars akych mnozin
 	int mnozina1[]= {7,5,8,4,4,1,2};
 	int mnozina2[]= {4,1,2,0,9,7};
 	int i;
@@ -100,7 +104,7 @@ main () {
 	int zjednotena_mnozina[13];
 	int prienikova_mnozina[13];
 	
-	
+	//pocet prvkov zjednotenej mnoziny
 	int pocet_z=zjednotenie (mnozina1,mnozina2,zjednotena_mnozina,7,6);
 
 	for (i=0; i<pocet_z; i++) {
@@ -109,7 +113,7 @@ main () {
 
 	printf ("\n");
 
-
+	//pocet prvkov prienikovej mnoziny
 	int pocet_p=prienik (mnozina1,mnozina2,prienikova_mnozina,7,6);
 	
 	for (i=0; i<pocet_p; i++) {
