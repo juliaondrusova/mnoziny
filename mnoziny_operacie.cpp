@@ -57,6 +57,8 @@ int prienik (int mnozina1[], int mnozina2[], int mnozina3[], int pocet1, int poc
 	
 	int i, j;
 	int pocet=0;
+	int pocet_1=0;
+	int mnozina4[pocet1+pocet2];
 	
 	for (i=0;i<pocet1; i++) {
 		for (j=0;j<pocet2;j++) {
@@ -68,7 +70,22 @@ int prienik (int mnozina1[], int mnozina2[], int mnozina3[], int pocet1, int poc
 		}
 	}
 	
-	return pocet;
+	//kontrola, ci su niekotore prvky zhodne alebo nie
+	for (i=0; i<pocet; i++) {
+		
+		//ak dany prvok mnozina neobsahuje, tak ho tam prida a zvysi pocet o 1
+		if (!obsahuje(mnozina4,pocet,mnozina3[i])) {
+			mnozina4[pocet_1]=mnozina3[i];
+			pocet_1++;
+		}
+	}
+	
+	//priradenie uz vyslednej mnoziny do tej, ktora bola na vstupe
+	for (i=0; i<pocet_1; i++) {
+		mnozina3[i]=mnozina4[i];
+	}
+	
+	return pocet_1;
 }
 
 
