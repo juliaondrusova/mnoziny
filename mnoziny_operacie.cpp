@@ -18,10 +18,14 @@ int obsahuje(int mnozina[], int pocet, int prvok) {
 	return FALSE;
 }
 
+
 int zjednotenie (int mnozina1[], int mnozina2[], int mnozina3[], int pocet1, int pocet2) {
 
-	int i;
+	int i, j;
+	int mnozina4[pocet1+pocet2];
+	int pocet=0;
 
+	//nacitanie vsetkych prvkov z oboch vstupnych mnozin
 	for (i=0; i<pocet1; i++) {
 		mnozina3[i]=mnozina1[i];
 	}
@@ -29,9 +33,24 @@ int zjednotenie (int mnozina1[], int mnozina2[], int mnozina3[], int pocet1, int
 		mnozina3[i]=mnozina2[i-pocet1];
 	}
 
-	return pocet1+pocet2;
+	//kontrola, ci su niekotore prvky zhodne alebo nie
+	for (i=0; i<pocet1+pocet2; i++) {
+		
+		//ak dany prvok mnozina neobsahuje, tak ho tam prida a zvysi pocet o 1
+		if (!obsahuje(mnozina4,pocet,mnozina3[i])) {
+			mnozina4[pocet]=mnozina3[i];
+			pocet++;
+		}
+	}
+	
+	//priradenie uz vyslednej mnoziny do tej, ktora bola na vstupe
+	for (i=0; i<pocet; i++) {
+		mnozina3[i]=mnozina4[i];
+	}
+	
+	//vracia pocet prvkov zjednotenej mnoziny
+	return pocet;
 }
-
 
 
 
