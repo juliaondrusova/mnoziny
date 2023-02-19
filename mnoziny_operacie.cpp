@@ -1,9 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 #include <math.h>
 
+#define TRUE 1
+#define FALSE 0
 
+
+int obsahuje(int mnozina[], int pocet, int prvok) {
+	
+	int i;
+	
+	for(i=0; i<pocet; i++) {
+		if (mnozina[i]== prvok) {
+			return TRUE;
+		}
+	}
+	return FALSE;
+}
 
 int zjednotenie (int mnozina1[], int mnozina2[], int mnozina3[], int pocet1, int pocet2) {
 
